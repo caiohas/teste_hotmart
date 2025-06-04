@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "teste-hotmart"
+version = "0.1.0"
+description = ""
+authors = ["Caio Souza <caiohas.2908@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyspark = "^4.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
