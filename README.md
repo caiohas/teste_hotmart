@@ -23,7 +23,7 @@ Este é um exemplo do dataset final:
 ![alt text](exemplo.png)
 Desenvolvimento: utilizei dados fictícios gerando os DataFrames utilizados para a transformação. Depois disso salvei os arquivos diários em uma pasta parquet_files para que o spark preservasse o histórico, atualizando incrementalmente e realizasse a leitura dos arquivos para gerarmos as tabelas. O idel, seria o armazenamento dos dados no formato delta, isso traria maior consistência sobretudo no processo de atualização incremental pelas suas características.
 Desenvolvi um exboço de arquitetura que permitisse esse processo:
-![alt text](<Captura de tela de 2025-06-05 09-49-22.png>)
+![alt text](exemplo_arquitetura.png)
 
 Pontos de melhoria:
 - Utilização de CDC utilizando a tecnologia Delta Live Table presente no Databricks.
