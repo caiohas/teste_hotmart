@@ -31,6 +31,7 @@ Desenvolvi um exboço de arquitetura que permitisse esse processo:
 Pontos de melhoria:
 - Utilização de CDC utilizando a tecnologia Delta Live Table presente no Databricks.
 - Utilização de ferramentas de orquestração, versionamento, implementação de testes de código.
+- Implementação de ambientes de teste e produção com esteira CI/CD para deploy das soluções.
 
 Obs.: 
 No exercício a amostra dos dados tem os campos segundo a imagem abaixo:
