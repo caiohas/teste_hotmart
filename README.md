@@ -20,17 +20,23 @@ Para melhor organizacao optei por criar uma CTE calculando o faturamento de cada
 O script etl encontra-se no arquivo no arquivo 'exercicio_etl_2.py'.
 O script foi desenvolvido utilizando pyspark. O create table do dataset final e a consulta SQL com o retorno no GMV diário encontram-se no script.
 Este é um exemplo do dataset final:
+
 ![alt text](exemplo.png)
+
 Desenvolvimento: utilizei dados fictícios gerando os DataFrames utilizados para a transformação. Depois disso salvei os arquivos diários em uma pasta parquet_files para que o spark preservasse o histórico, atualizando incrementalmente e realizasse a leitura dos arquivos para gerarmos as tabelas. O idel, seria o armazenamento dos dados no formato delta, isso traria maior consistência sobretudo no processo de atualização incremental pelas suas características.
 Desenvolvi um exboço de arquitetura que permitisse esse processo:
+
 ![alt text](exemplo_arquitetura.png)
 
 Pontos de melhoria:
 - Utilização de CDC utilizando a tecnologia Delta Live Table presente no Databricks.
+- Utilização de ferramentas de orquestração, versionamento, implementação de testes de código.
 
 Obs.: 
 No exercício a amostra dos dados tem os campos segundo a imagem abaixo:
+
 ![alt text](exemplo1.png)
+
 Entretanto, analisando o schema percebi que a 'product_item' no arquivo do exercício possui o campo 'purchase_id' não presente no schema e não possui o campo 'prod_item_id' presente no schema. Para fins de exemplo, utilizei o purchase_id nos joins, caso não seja o correto, uma melhoria seria a correção destes joins entre 'purchase' e 'product_item'.
 
 ![alt text](exemplo2.png)
