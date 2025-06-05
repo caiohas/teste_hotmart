@@ -1,5 +1,9 @@
 -- a) Quais são os 50 maiores produtores em faturamento ($) de 2021?
 
+-- Observacao: optei por utilizar o filtro de purchase_status como 'APROVADA'
+-- visto que estamos atuando com dados de faturamento. Limit 50 para trazermos
+-- os 50 primeiros.
+
 SELECT
     purchase.producer_id
     ,SUM(product_item.purchase_value) as faturamento_total
@@ -11,6 +15,13 @@ ORDER BY faturamento_total DESC
 LIMIT 50
 
 -- b) Quais são os 2 produtos que mais faturaram ($) de cada produtor?
+
+-- Observacao: para melhor organizacao optei por criar uma CTE calculando
+-- o faturamento de cada produto para cada produtor. Depois disso, utilizei
+-- de um artificio de em que faco um row_number para rankear os produtos e 
+-- um partition by por produtot. Obtendo assim o ranking de faturamento dos
+-- produtos para cada produtor. Depois apenas realizei a consulta principal
+-- trazendo esses dados e filtrando os top 2 de cada produtor.
 
 WITH faturamento_produto AS (
     SELECT
